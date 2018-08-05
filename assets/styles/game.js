@@ -32,19 +32,28 @@ let items = {
     }
 }
 
+function results() {
+    if (target.health == 0) {
+        alert("Defeat")
+    }
+}
+
 function slap() {
     target.health -= Math.floor(Math.random() * 2 + 1) + addMods();
     update()
+    results()
 }
 
 function punch() {
     target.health -= 5 + addMods();
     update()
+    results()
 }
 
 function kick() {
     target.health -= 10 + addMods();
     update()
+    results()
 }
 
 function reset() {
