@@ -33,7 +33,7 @@ let items = {
 }
 
 function slap() {
-    target.health -= 1 + addMods();
+    target.health -= Math.floor(Math.random() * 2 + 1) + addMods();
     update()
 }
 
