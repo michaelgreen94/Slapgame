@@ -63,13 +63,19 @@ function reset() {
     update()
 }
 
+let poison
+
 function giveFire() {
-    tick = 0
-    let poison = setInterval(function () {
-        tick += 1;
+    let tick = 0
+    if (poison) {
+        clearInterval(poison)
+    }
+    poison = setInterval(function () {
+        tick++;
         target.health -= 1;
         if (tick == 3) {
             clearInterval(poison)
+            poison = undefined
         }
         update()
     }, 1000);
