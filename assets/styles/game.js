@@ -64,7 +64,17 @@ function reset() {
 }
 
 function giveFire() {
-    target.items.push(items.fire)
+    tick = 0
+    let poison = setInterval(function () {
+        tick += 1;
+        target.health -= 1;
+        if (tick == 3) {
+            clearInterval(poison)
+        }
+        update()
+    }, 1000);
+
+
 }
 
 function giveWater() {
@@ -94,4 +104,3 @@ function update() {
     document.getElementById("charName").innerHTML = target.name;
 }
 update()
-
