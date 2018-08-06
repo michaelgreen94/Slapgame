@@ -2,17 +2,32 @@
 // let health = 100;
 // let hits = 0;
 
-let target = {
-    name: 'Dummy',
-    health: 100,
-    hits: 0,
-    attacks: {
-        slap: 1,
-        punch: 5,
-        kick: 10
+let targets = {
+
+    target1: {
+        name: 'Dummy',
+        health: 100,
+        hits: 0,
+        attacks: {
+            slap: 1,
+            punch: 5,
+            kick: 10
+        },
+        items: []
     },
-    items: []
+    target2: {
+        name: 'Not Dummy',
+        health: 150,
+        hits: 0,
+        attacks: {
+            stab: 2,
+            Slash: 8,
+            gouge: 13
+        },
+        items: []
+    }
 }
+
 
 let items = {
     fire: {
@@ -33,33 +48,33 @@ let items = {
 }
 
 function results() {
-    if (target.health == 0) {
+    if (targets.target1.health == 0) {
         alert("Defeat")
     }
 }
 
 function slap() {
-    target.health -= Math.floor(Math.random() * 2 + 1) + addMods();
+    targets.target1.health -= Math.floor(Math.random() * 2 + 1) + addMods();
     update()
     results()
 }
 
 function punch() {
-    target.health -= 5 + addMods();
+    targets.target1.health -= 5 + addMods();
     update()
     results()
 }
 
 function kick() {
-    target.health -= 10 + addMods();
+    targets.target1.health -= 10 + addMods();
     update()
     results()
 }
 
 function reset() {
-    target.health = 100;
-    target.hits = 0;
-    target.items = []
+    targets.target1.health = 100;
+    targets.target1.hits = 0;
+    targets.target1.items = []
     update()
 }
 
@@ -72,7 +87,7 @@ function giveFire() {
     }
     poison = setInterval(function () {
         tick++;
-        target.health -= 1;
+        targets.target1.health -= 1;
         if (tick == 3) {
             clearInterval(poison)
             poison = undefined
@@ -84,15 +99,15 @@ function giveFire() {
 }
 
 function giveWater() {
-    target.items.push(items.water)
+    targets.target1.items.push(items.water)
 }
 
 function giveTime() {
-    target.items.push(items.time)
+    targets.target1.items.push(items.time)
 }
 
 function addMods() {
-    let arr = target.items
+    let arr = targets.target1.items
     let runningTotal = 0
     for (let i = 0; i < arr.length; i++) {
         const item = arr[i];
@@ -102,11 +117,11 @@ function addMods() {
 }
 
 function update() {
-    if (target.health <= 0) {
-        target.health = 0
+    if (targets.target1.health <= 0) {
+        targets.target1.health = 0
     }
-    document.getElementById('health').innerText = ' ' + target.health;
-    document.getElementById('hits').innerText = ' ' + target.hits++;
-    document.getElementById("charName").innerHTML = target.name;
+    document.getElementById('health').innerText = ' ' + targets.target1.health;
+    document.getElementById('hits').innerText = ' ' + targets.target1.hits++;
+    document.getElementById("charName").innerHTML = targets.target1.name;
 }
 update()
