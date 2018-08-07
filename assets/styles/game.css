@@ -1,5 +1,5 @@
 .bgfield {
-    background-image: url(assets/images/battlefield.jpg);
+    background-image: url(../images/battlefield.jpg);
     height: 100vh;
     background-attachment: fixed;
     background-position: center;
