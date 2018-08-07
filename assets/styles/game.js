@@ -88,6 +88,7 @@ function giveFire() {
     poison = setInterval(function () {
         tick++;
         targets.target1.health -= 1;
+        targets.target1.hits--
         if (tick == 3) {
             clearInterval(poison)
             poison = undefined
