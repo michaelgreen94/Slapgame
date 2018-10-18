@@ -119,13 +119,13 @@ function addMods() {
     return runningTotal
 }
 
-function drawButtons() {
-    let template = ""
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
+// function drawButtons() {
+//     let template = ""
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[i];
 
-    }
-}
+//     }
+// }
 
 function update() {
     if (targets.target1.health <= 0) {
