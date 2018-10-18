@@ -13,7 +13,8 @@ let targets = {
             punch: 5,
             kick: 10
         },
-        items: []
+        items: [],
+        dumImg: 'assets/images/target.png'
     },
     target2: {
         name: 'Not Dummy',
@@ -24,7 +25,8 @@ let targets = {
             Slash: 8,
             gouge: 13
         },
-        items: []
+        items: [],
+        dumImg: 'assets/images/PracticeDummy.png'
     }
 }
 
@@ -80,7 +82,7 @@ function reset() {
 
 let poison
 
-function giveFire() {
+function givePoison() {
     let tick = 0
     if (poison) {
         clearInterval(poison)
@@ -114,6 +116,14 @@ function addMods() {
         runningTotal += item.modifier
     }
     return runningTotal
+}
+
+function drawButtons() {
+    let template = ""
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+
+    }
 }
 
 function update() {
